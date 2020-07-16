@@ -1,0 +1,12 @@
+Test 1:
+	server: ./server
+	client: ./client connect
+	Output client: Success: server connected.
+	Output server: Success: client connected.
+
+Test 2:
+	Shell: client server
+	Input server: ./server
+	Input client: ./client connect
+	Output client: Success: server connected.
+	Output server: Success: client connected.
