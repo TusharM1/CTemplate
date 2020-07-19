@@ -1,8 +1,8 @@
 BUILD = DEBUG
 
 all:
-	@echo "Building library"
-	@$(MAKE) -C library BUILD=$(BUILD)
+	@echo "Building core"
+	@$(MAKE) -C core BUILD=$(BUILD)
 	@echo "Building client"
 	@$(MAKE) -C client BUILD=$(BUILD)
 	@echo "Building server"
@@ -10,9 +10,9 @@ all:
 	@echo "Building tester"
 	@$(MAKE) -C tester BUILD=$(BUILD)
 
-library: FORCE
-	@echo "Building library"
-	@$(MAKE) -C library BUILD=$(BUILD)
+core: FORCE
+	@echo "Building core"
+	@$(MAKE) -C core BUILD=$(BUILD)
 
 client: FORCE
 	@echo "Building client"
@@ -29,8 +29,8 @@ tester: FORCE
 FORCE:
 
 clean:
-	@echo "Cleaning library"
-	@$(MAKE) -C library clean
+	@echo "Cleaning core"
+	@$(MAKE) -C core clean
 	@echo "Cleaning client"
 	@$(MAKE) -C client clean
 	@echo "Cleaning server"

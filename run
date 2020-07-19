@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-if [ $1 = "client" ]; then
-	client/build/bin/client
-elif [ $1 = "server" ]; then
-	server/build/bin/server
-elif [ $1 = "tester" ]; then
-	tester/build/bin/tester
-fi

@@ -1,23 +1,23 @@
 # TARGET EXECUTABLE
-TARGET = tester
+TARGET = core
 
 # LIBRARIES
 LIBRARIES = -lcore
 
 # INPUT DIRECTORIES
 SRC_DIR = src
-INCLUDE_DIR = -Iinclude -I../core/include
-LIBRARY_DIR = -L../build/bin/core -L../libs
+INCLUDE_DIR = -Iinclude
+LIBRARY_DIR = -L../libs
 
 # OUTPUT DIRECTORIES
 BIN_DIR = ../build/bin/$(TARGET)
 OBJ_DIR = ../build/obj/$(TARGET)
 
-# FILES TO INCLUDE IN TARGETS
-FILES := $(shell find $(SRC_DIR) -name "*.c")
+# ALL C FILES IN SOURCE FOLDER
+FILES := $(shell find src -name "*.c")
 
 # ALL SUBDIRECTORIES IN SOURCE FOLDER
-FOLDERS := $(shell find $(SRC_DIR) -type d)
+FOLDERS := $(shell find src -type d)
 
 # BUILD MODE
 BUILD = DEBUG
@@ -25,23 +25,21 @@ BUILD = DEBUG
 # C COMPILER
 CC = clang
 
-# COMPILER FLAGS
+# FLAGS
 CFLAGS = -ansi $(INCLUDE_DIR)
 
-# DEBUG FLAGS
-DEBUG_FLAGS = -Wall -Werror -pedantic -g
-
-ifeq ($(BUILD), DEBUG)
-    CFLAGS += $(DEBUG_FLAGS)
+ifeq ($(BUILD), DEBUG)	
+    CFLAGS += -Wall -Werror -pedantic -g
 endif
 
-# LINKER FLAGS
-CFLAGS_L = -fsanitize=address,undefined
-
 # MAIN TARGET
-$(TARGET): $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(FILES:.c=.o))
-	@echo "    Building $(TARGET)"
-	@$(CC) $(CFLAGS_L) $(LIBRARY_DIR) $^ $(LIBRARIES) -o $(BIN_DIR)/$(TARGET)
+$(TARGET): $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(FILES:.c=.o)) | remake
+	@echo "    Rebuilding $(TARGET)"
+	@ar r $(BIN_DIR)/lib$(TARGET).a $^
+
+# DELETE EXISTING ARCHIVE
+remake:
+	@rm -f $(BIN_DIR)/lib$(TARGET).a
 
 # CREATE OBJECT FILES
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | init

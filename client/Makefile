@@ -1,53 +1,61 @@
 # TARGET EXECUTABLE
 TARGET = client
 
-# C COMPILER
-CC = clang
+# LIBRARIES
+LIBRARIES = -lcore
 
-# FLAGS
-CFLAGS = -Iinclude -I../library/include
+# INPUT DIRECTORIES
+SRC_DIR = src
+INCLUDE_DIR = -Iinclude -I../core/include
+LIBRARY_DIR = -L../build/bin/core -L../libs
 
-# COMPILER FLAGS
-CFLAGS_C = -ansi -Wall -Werror -pedantic -g
+# OUTPUT DIRECTORIES
+BIN_DIR = ../build/bin/$(TARGET)
+OBJ_DIR = ../build/obj/$(TARGET)
+
+# FILES TO INCLUDE IN TARGETS
+FILES := $(shell find $(SRC_DIR) -name "*.c")
+
+# ALL SUBDIRECTORIES IN SOURCE FOLDER
+FOLDERS := $(shell find $(SRC_DIR) -type d)
 
 # BUILD MODE
 BUILD = DEBUG
 
+# C COMPILER
+CC = clang
+
+# COMPILER FLAGS
+CFLAGS = -ansi $(INCLUDE_DIR)
+
+# DEBUG FLAGS
+DEBUG_FLAGS = -Wall -Werror -pedantic -g
+
 ifeq ($(BUILD), DEBUG)
-    CFLAGS += $(CFLAGS_C)
+    CFLAGS += $(DEBUG_FLAGS)
 endif
 
 # LINKER FLAGS
 CFLAGS_L = -fsanitize=address,undefined
 
-# LIBRARIES
-LIBRARY_FOLDERS = -L../library/build/bin
-LIBRARIES = -llibrary
-
-# FILES TO INCLUDE IN TARGETS
-FILES := $(shell find src -name "*.c")
-
-# ALL SUBDIRECTORIES IN SOURCE FOLDER
-FOLDERS := $(shell find src -type d)
-
 # MAIN TARGET
-$(TARGET): $(patsubst src/%, build/obj/%, $(FILES:.c=.o))
+$(TARGET): $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(FILES:.c=.o))
 	@echo "    Building $(TARGET)"
-	@$(CC) $(CFLAGS_L) $(LIBRARY_FOLDERS) $^ $(LIBRARIES) -o build/bin/$(TARGET) 
+	@$(CC) $(CFLAGS_L) $(LIBRARY_DIR) $^ $(LIBRARIES) -o $(BIN_DIR)/$(TARGET)
 
 # CREATE OBJECT FILES
-build/obj/%.o: src/%.c | init
-	@echo "    Building object file $@ for $(TARGET)"
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | init
+	@echo "    Building object file $(patsubst ../build/obj/%,%, $@) in ../build/bin"
 	@$(CC) $(CFLAGS) -c $^ -o $@
 
 # CREATE DIRECTORIES IF NOT ALREADY CREATED
 init:
 	@echo "    Creating directories for $(TARGET)"
-	@mkdir -p build/bin build/obj $(patsubst src/%, build/obj/%, $(FOLDERS))
+	@mkdir -p ../build/bin $(BIN_DIR) ../build/obj $(OBJ_DIR) $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(FOLDERS))
 
 .PHONY: clean
 
 # REMOVE ALL FILES IN BUILD DIRECTORY
 clean:
 	@echo "    Cleaning $(TARGET)"
-	@rm -rf build/bin/* build/obj/*
+	@rm -rf $(BIN_DIR)/* $(OBJ_DIR)/*
