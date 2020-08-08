@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.10)
+
+set(TARGET_NAME core)
+
+file(GLOB_RECURSE FILES *.c)
+
+add_library(${TARGET_NAME} STATIC ${FILES})
+
+file(MAKE_DIRECTORY ${PROJECT_SOURCE_DIR}/libs/${TARGET_NAME})
+
+set_target_properties(${TARGET_NAME} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/libs/${TARGET_NAME})
