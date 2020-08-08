@@ -2,5 +2,6 @@ build/
 bin/
 libs/
 .vscode/
+.vs/
 
 .DS_STORE

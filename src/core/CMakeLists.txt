@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.10)
-
 set(TARGET_NAME core)
 
 file(GLOB_RECURSE FILES *.c)

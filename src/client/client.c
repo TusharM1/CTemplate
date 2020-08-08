@@ -4,6 +4,7 @@
 #include "commands.h"
 
 int main(int argc, char* argv[]) {
-	printf("Client %d\n", commands());
+	int command = commands();
+	printf("Client %d\n", command);
 	return EXIT_SUCCESS;
 }
