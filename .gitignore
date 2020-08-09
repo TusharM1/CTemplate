@@ -1,7 +1,20 @@
+# CMake Build Files
 build/
+
+# Executable Binary
 bin/
+
+# Library Binary
 libs/
+
+# Doxygen Documention
+docs/
+
+# Visual Studio Code Configuration Files
 .vscode/
+
+# Visual Studio Configuration Files
 .vs/
 
+# MacOS Directory File
 .DS_STORE

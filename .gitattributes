@@ -1,0 +1,16 @@
+# Set default behaviour (in case users don't have core.autocrlf set).
+* text=auto
+
+# Text files to always be normalized and converted to native line endings on checkout.
+*.c text
+*.h text
+*.txt text
+*.md text
+*.sh text
+
+# Windows files (will always have CRLF line endings) on checkout.
+*.bat text eol=crlf
+
+# Binary files that should not be modified.
+*.png binary
+*.jpg binary
