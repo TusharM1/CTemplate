@@ -1,0 +1,16 @@
+# Project Build and Installation Instructions  
+
+## To build and install the program:  
+1.    mkdir build 					# Create a directory called "build" in project root  
+2.    cd build 						# Change current directory to build  
+3.    cmake .. --config Release		# Initialize CMake  
+4.    cmake --build . 				# Build the project  
+5.    cmake --install .				# Install the program in bin/ directory  
+
+## To build in debug mode, replace line 3 with:  
+3.    cmake .. --config Debug   
+
+## To install in another directory (ex: /usr/local/bin/), replace line 5 with:  
+5.    cmake --install . --prefix <install-path>  
+
+The project should now be installed  

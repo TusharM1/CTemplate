@@ -1,15 +1,17 @@
-cmake_minimum_required(VERSION 3.10)
+# Minimum CMake Version
+cmake_minimum_required(VERSION 3.15)
 
-project(Project VERSION 1.0)
+# Project Name and Version
+project(Project VERSION 1.0.0)
 
-get_filename_component(CONFIGURATION_NAME ${CMAKE_BINARY_DIR} NAME)
+# Set Install Location
+set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR})
 
-set(CURRENT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/${CONFIGURATION_NAME})
+# Add core library
+add_subdirectory(core)
 
-file(MAKE_DIRECTORY bin)
+# Add client module
+add_subdirectory(client)
 
-add_subdirectory(src/core)
-
-add_subdirectory(src/client)
-
-add_subdirectory(src/server)
+# Add server module
+add_subdirectory(server)
