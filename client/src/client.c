@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "commands.h"
-
 /**
  * @file client.c
  * @author Tushar Mahajan
@@ -10,6 +5,11 @@
  * @brief This is the main file for the client.
  * This file contains all the code exclusive to the client.
  */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "commands.h"
 
 /**
  * @brief This is the main function that runs the client.
