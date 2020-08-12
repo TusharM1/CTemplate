@@ -1,14 +1,14 @@
 # CMake Build Files
 build/
+_build/
 
 # Executable Binary
 bin/
-
-# Library Binary
-libs/
+_bin/
 
 # Doxygen Documention
 docs/
+_docs/
 
 # Visual Studio Code Configuration Files
 .vscode/

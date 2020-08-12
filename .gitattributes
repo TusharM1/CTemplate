@@ -7,6 +7,12 @@
 *.txt text
 *.md text
 *.sh text
+*.json text
+.editorconfig text
+Doxyfile text
+INSTALL text
+LICENSE text
+TODO text
 
 # Windows files (will always have CRLF line endings) on checkout.
 *.bat text eol=crlf

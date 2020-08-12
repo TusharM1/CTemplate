@@ -13,4 +13,4 @@ include_directories(${PROJECT_SOURCE_DIR}/common/include)
 # Link common library
 target_link_libraries(${TARGET_NAME} common)
 
-install(TARGETS ${TARGET_NAME} DESTINATION bin/${TARGET_NAME})
+install(TARGETS ${TARGET_NAME} DESTINATION _bin/${TARGET_NAME})
