@@ -8,7 +8,7 @@ project(Project VERSION 1.0.0)
 set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR})
 
 # Add core library
-add_subdirectory(core)
+add_subdirectory(common)
 
 # Add client module
 add_subdirectory(client)

@@ -3,7 +3,8 @@ Structure:
 /- Where to put compiled library files (.a and .o) in libs/ or bin/
 /- Consider moving folders from in src/ to project root (to look the same as Visual Studio Projects), 
 /  And if so, where to put binary files, in bin/ at project root or per project folder.
-/- Copy folder structure for include/ directory, and make it work with CMake  
+/- Copy folder structure for include/ directory, and make it work with CMake,  
+/   Or remove the structure for include and src entirely
 
 Documentation/Doxygen:
 - Get PDF working
