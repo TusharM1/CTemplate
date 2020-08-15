@@ -3,7 +3,7 @@
 
 typedef struct String {
 	int code;
-	char* string;
+	const char* string;
 } String;
 
 String success_S = {0, "Success.\n"};
