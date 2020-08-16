@@ -1,7 +1,7 @@
 /**
  * @file client.c
- * @author "Tushar Mahajan"
- * @date "9 Aug 2020"
+ * @author Tushar Mahajan
+ * @date 9 Aug 2020
  * @brief This is the main file for the client.
  * This file contains all the code exclusive to the client.
  */

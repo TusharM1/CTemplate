@@ -36,7 +36,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(unity)
 FetchContent_GetProperties(unity)
 if(NOT unity_POPULATED)
-	sFetchContent_Populate(unity)
+	FetchContent_Populate(unity)
 	add_subdirectory(${unity_SOURCE_DIR} ${unity_BINARY_DIR})
 endif()
 

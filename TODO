@@ -22,6 +22,7 @@ CMake:
 /- Consider finding all sources from target_sources instead of GLOB
 - Figure out how to change folder for different architecture and build modes
 - Figure out how to have different configuration folders and only one dependency folder
+- How to build library regardless of settings
 /- Generate documentation in CMake
 /- Run Tests from CMake
 /- Consider making a scripts folder to hold a bash script to run CMake with proper configuration

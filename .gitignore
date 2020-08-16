@@ -9,6 +9,8 @@ _bin/
 # Doxygen Documention
 docs/
 _docs/
+doc/
+_doc/
 
 # Libraries
 lib/
