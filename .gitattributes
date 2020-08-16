@@ -20,3 +20,4 @@ TODO text
 # Binary files that should not be modified.
 *.png binary
 *.jpg binary
+*.pdf binary

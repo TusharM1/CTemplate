@@ -9,7 +9,7 @@ Structure:
 Documentation/Doxygen:
 - Get PDF working
 - Get main page looking better
-- Only create documentation on Release and not Debug
+/- Only create documentation on Release and not Debug
 /- Create INSTALL file
 
 Testing:

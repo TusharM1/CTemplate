@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.15)
 # Project Name and Version
 project(Project VERSION 1.0.0)
 
+# Compile with warnings
 if (MSVC)
 	add_compile_options(/W4)
 else()
@@ -22,35 +23,32 @@ add_subdirectory(client)
 # Add server module
 add_subdirectory(server)
 
-# Add testing framework
-# set(CMAKE_CXX_STANDARD 17)
-# include(FetchContent)
-# FetchContent_Declare(
-#   googletest
-#   GIT_REPOSITORY https://github.com/google/googletest.git
-#   GIT_TAG        release-1.10.0
-# )
-# FetchContent_MakeAvailable(googletest)
-# FetchContent_GetProperties(googletest)
-# if(NOT googletest_POPULATED)
-#   FetchContent_Populate(googletest)
-#   add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR})
-# endif()
-# enable_testing()
-# add_subdirectory(tests)
+# Add Unity testing framework from github
+include(FetchContent)
+FetchContent_Declare(
+  unity
+  GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git
+  GIT_TAG        v2.5.1
+)
+FetchContent_MakeAvailable(unity)
+FetchContent_GetProperties(unity)
+if(NOT unity_POPULATED)
+  FetchContent_Populate(unity)
+  add_subdirectory(${unity_SOURCE_DIR} ${unity_BINARY_DIR})
+endif()
 
-# Testing Attempt 2
+# Enable testing and add testing folders
 enable_testing()
 add_subdirectory(tests)
 
 # Generate documentation
-# find_package(Doxygen)
-# if (DOXYGEN_FOUND)
-# 	add_custom_target(doc_doxygen ALL
-# 		COMMAND ${DOXYGEN_EXECUTABLE} ${PROJECT_SOURCE_DIR}/Doxyfile
-# 		WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-# 		COMMENT "Generating API documentation with Doxygen"
-# 		VERBATIM)
-# else (DOXYGEN_FOUND)
-# 	message("Doxygen needs to be installed to generate documentation")
-# endif (DOXYGEN_FOUND)
+find_package(Doxygen)
+if (DOXYGEN_FOUND)
+	add_custom_target(doxygen
+		COMMAND ${DOXYGEN_EXECUTABLE} ${PROJECT_SOURCE_DIR}/Doxyfile
+		WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+		COMMENT "Generating API documentation with Doxygen"
+		VERBATIM)
+else (DOXYGEN_FOUND)
+	message("Doxygen needs to be installed to generate documentation")
+endif (DOXYGEN_FOUND)
