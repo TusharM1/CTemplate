@@ -7,9 +7,6 @@ file(GLOB_RECURSE FILES *.c *.h)
 # Add executable
 add_executable(${TARGET_NAME} ${FILES})
 
-# Add include directories
-include_directories(${PROJECT_SOURCE_DIR}/common/include)
-
 # Link libraries
 target_link_libraries(${TARGET_NAME} PUBLIC unity common)
 

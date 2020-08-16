@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "commands.h"
+#include <common/commands.h>
 
 int function() {
 	return 10;

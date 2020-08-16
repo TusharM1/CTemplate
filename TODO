@@ -13,17 +13,18 @@ Documentation/Doxygen:
 /- Create INSTALL file
 
 Testing:
-- Whether to use CTest, GoogleTest, Unit-Tests, or some other framework
-- Prefer to write tests in C as well, but not necessarily
-- Consider dropping the testing library in favor of running tests directly from CMake
-- Where to put tests, in tests/ folder or put tests as close to source file
+/- Whether to use CTest, GoogleTest, Unit-Tests, or some other framework
+/- Prefer to write tests in C as well, but not necessarily
+/- Consider dropping the testing library in favor of running tests directly from CMake
+/- Where to put tests, in tests/ folder or put tests as close to source file
 
 CMake:
-- Change finding all sources from GLOB to target_sources
+/- Consider finding all sources from target_sources instead of GLOB
 - Figure out how to change folder for different architecture and build modes
+- Figure out how to have different configuration folders and only one dependency folder
 /- Generate documentation in CMake
-- Run Tests from CMake
-- Consider making a scripts folder to hold a bash script to run CMake with proper configuration
+/- Run Tests from CMake
+/- Consider making a scripts folder to hold a bash script to run CMake with proper configuration
 /- Look into using install instead of moving the binaries
 /- Try to make CMake --build . --config Debug and --config Release work
 
@@ -36,6 +37,6 @@ Open Source:
 
 Extras:
 - Get Project Logo
-- Figure out what TRAVIS.yml is
+- Figure out what TRAVIS.yml and appveyor is
 /- Use .editorconfig for consistancy
 /- Configure .gitattributes futher

@@ -1,14 +1,14 @@
+#include <unity/unity.h>
+
 #include <stdio.h>
 
-#include <unity.h>
-
-#include "commands.h"
+#include <common/commands.h>
 
 void setUp(){}
 void tearDown(){}
 
 void test_commands() {
-	TEST_ASSERT_EQUAL(2, commands());
+	TEST_ASSERT_EQUAL(3, commands());
 }
 
 int main(void) {

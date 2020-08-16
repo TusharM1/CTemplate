@@ -10,6 +10,12 @@ _bin/
 docs/
 _docs/
 
+# Libraries
+lib/
+_lib/
+libs/
+_libs/
+
 # Visual Studio Code Configuration Files
 .vscode/
 

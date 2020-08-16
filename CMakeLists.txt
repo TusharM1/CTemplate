@@ -14,6 +14,9 @@ endif()
 # Set Install Location
 set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR})
 
+# Set include directories
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
 # Add core library
 add_subdirectory(common)
 
@@ -26,15 +29,15 @@ add_subdirectory(server)
 # Add Unity testing framework from github
 include(FetchContent)
 FetchContent_Declare(
-  unity
-  GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git
-  GIT_TAG        v2.5.1
+	unity
+	GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git
+	GIT_TAG        v2.5.1
 )
 FetchContent_MakeAvailable(unity)
 FetchContent_GetProperties(unity)
 if(NOT unity_POPULATED)
-  FetchContent_Populate(unity)
-  add_subdirectory(${unity_SOURCE_DIR} ${unity_BINARY_DIR})
+	sFetchContent_Populate(unity)
+	add_subdirectory(${unity_SOURCE_DIR} ${unity_BINARY_DIR})
 endif()
 
 # Enable testing and add testing folders
