@@ -1,7 +1,4 @@
 CMake:
-- Figure out how to change folder for different architecture and build modes
-- Figure out how to have different configuration folders and only one dependency folder
-- How to build library regardless of settings
 - Figure out what a .cmake file is
 
 Documentation/Doxygen:
