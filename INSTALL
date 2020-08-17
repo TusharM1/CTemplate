@@ -1,11 +1,11 @@
 Project Build and Installation Instructions
 
 To build and install the program:
-1.    mkdir _build 								# Create a directory called "_build" in project root
-2.    cd _build 								# Change current directory to _build/
-3.    cmake .. -DCMAKE_BUILD_TYPE=Release		# Initialize CMake
-4.    cmake --build . --config Release			# Build the project
-5.    cmake --install .							# Install the program in _bin/ directory
+1.    mkdir _build                              # Create a directory called "_build" in project root
+2.    cd _build                                 # Change current directory to _build/
+3.    cmake .. -DCMAKE_BUILD_TYPE=Release       # Initialize CMake
+4.    cmake --build . --config Release          # Build the project
+5.    cmake --install .                         # Install the program in _bin/ directory
 
 To build in debug mode:
 	If using single configuration generator, replace line 3 with (config parameter in line 4 will be ignored):
@@ -19,5 +19,8 @@ To install in another directory (ex: /usr/local/bin/), replace line 5 with:
 
 To build documentation, add line 6:
 6.    cmake --build . --target doxygen
+
+To run tests, add line 7:
+7.    ctest --output-on-failure
 
 The project should now be installed and ready to run.

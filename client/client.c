@@ -11,10 +11,6 @@
 
 #include <common/commands.h>
 
-int function() {
-	return 10;
-}
-
 /**
  * @brief This is the main function that runs the client.
  * @param argc Command line arguments count
