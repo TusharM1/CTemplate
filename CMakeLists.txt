@@ -4,8 +4,8 @@ cmake_minimum_required(VERSION 3.15)
 # Project Name and Version
 project(Project
 	VERSION 1.0.0
-	DESCRIPTION This is a C Project
-	LANGUAGE C)
+	DESCRIPTION "This is a C Project"
+	LANGUAGES C)
 
 # Compile with warnings
 if (MSVC)
