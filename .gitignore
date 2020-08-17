@@ -18,6 +18,10 @@ _lib/
 libs/
 _libs/
 
+# External projects source code
+external/
+_external/
+
 # Visual Studio Code Configuration Files
 .vscode/
 

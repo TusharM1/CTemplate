@@ -27,18 +27,21 @@ add_subdirectory(client)
 add_subdirectory(server)
 
 # Add Unity testing framework from github
-include(FetchContent)
-FetchContent_Declare(
-	unity
-	GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git
-	GIT_TAG        v2.5.1
+include(ExternalProject)
+set(UNITY unity)
+ExternalProject_Add(
+	${UNITY}
+	GIT_REPOSITORY 		https://github.com/ThrowTheSwitch/Unity.git
+	GIT_TAG 			v2.5.1
+	PREFIX 				${PROJECT_SOURCE_DIR}/external/${UNITY}
+	CONFIGURE_COMMAND 	cmake ../${UNITY}
+	BUILD_COMMAND 		cmake --build .
+	INSTALL_COMMAND 	cmake --install . --prefix ${PROJECT_SOURCE_DIR}
+	UPDATE_COMMAND 		""
 )
-FetchContent_MakeAvailable(unity)
-FetchContent_GetProperties(unity)
-if(NOT unity_POPULATED)
-	FetchContent_Populate(unity)
-	add_subdirectory(${unity_SOURCE_DIR} ${unity_BINARY_DIR})
-endif()
+add_library(unity-library STATIC IMPORTED)
+set_property(TARGET unity-library PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/lib/libunity.a)
+add_dependencies(unity-library unity)
 
 # Enable testing and add testing folders
 enable_testing()

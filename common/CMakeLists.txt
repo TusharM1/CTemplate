@@ -8,4 +8,4 @@ file(GLOB_RECURSE FILES *.c *.h)
 add_library(${TARGET_NAME} STATIC ${FILES})
 
 # Install library
-install(TARGETS ${TARGET_NAME} DESTINATION lib/${TARGET_NAME})
+install(TARGETS ${TARGET_NAME} DESTINATION lib/)

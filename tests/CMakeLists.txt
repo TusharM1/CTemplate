@@ -8,7 +8,7 @@ file(GLOB_RECURSE FILES *.c *.h)
 add_executable(${TARGET_NAME} ${FILES})
 
 # Link libraries
-target_link_libraries(${TARGET_NAME} PUBLIC unity common)
+target_link_libraries(${TARGET_NAME} PUBLIC unity-library common)
 
 # Add tests to list
 add_test(NAME ${TARGET_NAME} COMMAND ${TARGET_NAME})
