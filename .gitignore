@@ -22,6 +22,9 @@ _libs/
 external/
 _external/
 
+# External library headers
+include/unity
+
 # Visual Studio Code Configuration Files
 .vscode/
 
