@@ -2,7 +2,10 @@
 cmake_minimum_required(VERSION 3.15)
 
 # Project Name and Version
-project(Project VERSION 1.0.0)
+project(Project
+	VERSION 1.0.0
+	DESCRIPTION This is a C Project
+	LANGUAGE C)
 
 # Compile with warnings
 if (MSVC)
@@ -40,7 +43,7 @@ ExternalProject_Add(
 	UPDATE_COMMAND 		""
 )
 add_library(unity-library STATIC IMPORTED)
-set_property(TARGET unity-library PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/lib/libunity.a)
+set_property(TARGET unity-library PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}unity${CMAKE_STATIC_LIBRARY_SUFFIX})
 add_dependencies(unity-library unity)
 
 # Enable testing and add testing folders

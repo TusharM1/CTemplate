@@ -6,3 +6,6 @@ file(GLOB_RECURSE FILES *.c *.h)
 
 # Add static library
 add_library(${TARGET_NAME} STATIC ${FILES})
+
+# Install executable
+install(TARGETS ${TARGET_NAME} DESTINATION lib/${CMAKE_STATIC_LIBRARY_PREFIX}${TARGET_NAME}${CMAKE_STATIC_LIBRARY_SUFFIX})
