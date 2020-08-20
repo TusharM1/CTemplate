@@ -55,6 +55,7 @@ find_package(Doxygen)
 if (DOXYGEN_FOUND)
 	add_custom_target(doxygen
 		COMMAND ${DOXYGEN_EXECUTABLE} ${PROJECT_SOURCE_DIR}/Doxyfile
+		COMMAND make -C ${PROJECT_SOURCE_DIR}/doc/latex
 		WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 		COMMENT "Generating API documentation with Doxygen"
 		VERBATIM)
