@@ -7,3 +7,7 @@ Documentation/Doxygen:
 
 Extras:
 - Figure out what TRAVIS.yml and appveyor is
+- Memory profiler
+- Benchmarking
+- .clang-tidy
+- include what you use

@@ -1,6 +1,7 @@
 # CMake Build Files
 build/
 _build/
+cmake-build-debug/
 
 # Executable Binary
 bin/
@@ -30,6 +31,9 @@ include/unity
 
 # Visual Studio Configuration Files
 .vs/
+
+# CLion Configuration Files
+.idea/
 
 # MacOS Directory File
 .DS_STORE
