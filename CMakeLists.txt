@@ -11,7 +11,7 @@ project(Project
 if (MSVC)
 	add_compile_options(/W4)
 else()
-	add_compile_options(-Wall -Werror -Wpedantic)
+	add_compile_options(-Wall -Wextra -Werror -Wpedantic)
 endif()
 
 # Set Install Location
